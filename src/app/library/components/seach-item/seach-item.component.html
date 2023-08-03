@@ -1,0 +1,10 @@
+<div  class="card mb-2 text-center bg-dark">
+  <!-- <img [src]="gif.images.downsized_medium.url" [alt]="gif.title"> -->
+  <shared-lazy-image [routerLink]="['/library/' + type +'/' + album.id]"  [url]="album.images[1]?.url ||''" [alt]="album.name! || 'No Name'"></shared-lazy-image>
+      <div class="card-body text-white">
+        <p class="card-text">
+          <strong>{{album.name|| 'No title'}}</strong>
+        </p>
+        <button type="button" class="btn btn-success">Agregar favoritos</button>
+      </div>
+</div>

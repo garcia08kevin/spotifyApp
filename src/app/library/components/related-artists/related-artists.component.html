@@ -1,0 +1,27 @@
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button (click)="showMetod()" class="accordion-button " type="button">
+      Artistas Relacionados
+    </button>
+  </h2>
+
+  <ng-template #noShow></ng-template>
+
+  <div *ngIf="show else noShow">
+    <div class="accordion-body">
+      <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let artist of artists">
+          <div class="card mb-2 text-center bg-dark">
+            <shared-lazy-image [routerLink]="['/library/artist/', artist.id]" [url]="artist.images[1]?.url ||''"
+              [alt]="artist.name! || 'No Name'"></shared-lazy-image>
+            <div class="card-body text-white">
+              <p class="card-text">
+                <strong>{{artist.name|| 'No title'}}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button (click)="showMetod()" class="accordion-button " type="button">
+      Top canciones escuchadas
+    </button>
+  </h2>
+
+  <ng-template #noShow></ng-template>
+
+  <div *ngIf="!show else noShow">
+    <div class="accordion-body">
+
+      <div class="col">
+        <div class="">
+          <ul *ngFor="let song of tracks ; let i = index"  class="list-group">
+            <li class="align-items-center d-flex list-group-item">
+              <div class="me-4">
+                <img class="rounded mx-auto d-block" [routerLink]="['/library/album/'+song.album.id]" height="35" width="35"[src]="song.album.images[1]?.url ||''" [alt]="song.album.name! || 'No Name'">
+              </div>
+              <div>
+                <strong>{{i+1}}. </strong> {{song.name}} - <strong>Escuchas: </strong>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
